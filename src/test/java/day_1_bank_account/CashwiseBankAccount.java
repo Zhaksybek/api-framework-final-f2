@@ -11,6 +11,7 @@ import org.junit.runners.MethodSorters;
 import utilities.DataStore;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static utilities.CashwiseAuthorization.getToken;
@@ -34,20 +35,35 @@ public class CashwiseBankAccount {
 
        // response.prettyPrint();
 
-        int size = response.jsonPath().getInt("$.size");
+
+        int size = response.jsonPath().getList("").size();
         System.out.println("Size is: "+size);
 
-        String bankAccountName = response.jsonPath().getString("[0].bank_account_name");
-        System.out.println(bankAccountName);
+        for (int i=0; i<size; i++) {
 
-        String description = response.jsonPath().getString("[0].description");
-        System.out.println(description);
 
-        String typeOfPay = response.jsonPath().getString("[0].type_of_pay");
-        System.out.println(typeOfPay);
+            String bankAccountName = response.jsonPath().getString("["+i+"].bank_account_name");
+            System.out.println(bankAccountName);
 
-        String balance = response.jsonPath().getString("[0].balance");
-        System.out.println(balance);
+            String description = response.jsonPath().getString("["+i+"].description");
+            System.out.println(description);
+
+            String typeOfPay = response.jsonPath().getString("["+i+"].type_of_pay");
+            System.out.println(typeOfPay);
+
+            String balance = response.jsonPath().getString("["+i+"].balance");
+            System.out.println(balance);
+            System.out.println("==============");
+        }
+
+
+//        List<Object> listOfBanks = response.jsonPath().getList("");
+//        for (int i=0; i<size; i++){
+//            //System.out.println(listOfBanks.get(i).jsonPath().getString("bank_account_name"));
+//            //System.out.println(lostOfBanks.get(i));
+//            System.out.println(listOfBanks.get(i));
+//        }
+
     }
 
 
@@ -178,6 +194,8 @@ public class CashwiseBankAccount {
         response.prettyPrint();
 
     }
+
+
 
 
 }

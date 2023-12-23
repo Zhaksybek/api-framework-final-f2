@@ -1,11 +1,16 @@
 package pojo;
 
+import com.github.javafaker.Faker;
 import lombok.Data;
+import lombok.Setter;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Data
 public class RequestBody {
     /**
-     * We create this class because of set and get value of RequestBody
+     * We create this class to set value of RequestBody
      */
 
     private String email;
@@ -20,6 +25,18 @@ public class RequestBody {
     private String phone_number;
     private String address;
 
+
+    public Map<String, Object > reqBodyBankAccount(){
+        Faker faker = new Faker();
+        String companyName = faker.company().name();
+        Map<String, Object> requestBody = new HashMap<>();
+        requestBody.put("bank_account_name", companyName);
+        requestBody.put("description",  faker.company().name() + " Financial inc" );
+        requestBody.put("type_of_pay", "BANK");
+        requestBody.put("balance", faker.number().randomNumber(4, true));
+
+        return requestBody;
+    }
 
 
 

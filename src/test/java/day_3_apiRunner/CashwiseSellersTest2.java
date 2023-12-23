@@ -1,4 +1,4 @@
-package day_3;
+package day_3_apiRunner;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +15,6 @@ import utilities.Config;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import static utilities.CashwiseAuthorization.getToken;
 
@@ -31,22 +30,22 @@ public class CashwiseSellersTest2 {
     public void createManySellers(){
         //https://backend.cashwise.us/api/myaccount/sellers
 
-for (int i=0; i<=10; i++) {
-    RequestBody requestBody = new RequestBody();
-    requestBody.setCompany_name(faker.company().name());
-    requestBody.setSeller_name(faker.name().fullName());
-    requestBody.setEmail(faker.internet().emailAddress());
-    requestBody.setPhone_number(faker.phoneNumber().cellPhone());
-    requestBody.setAddress(faker.address().fullAddress());
+        for (int i=0; i<=10; i++) {
+            RequestBody requestBody = new RequestBody();
+            requestBody.setCompany_name(faker.company().name());
+            requestBody.setSeller_name(faker.name().fullName());
+            requestBody.setEmail(faker.internet().emailAddress());
+            requestBody.setPhone_number(faker.phoneNumber().cellPhone());
+            requestBody.setAddress(faker.address().fullAddress());
 
-    response = RestAssured.given()
-            .auth().oauth2(token)
-            .contentType(ContentType.JSON)
-            .body(requestBody)
-            .post(url + "sellers");
+            response = RestAssured.given()
+                    .auth().oauth2(token)
+                    .contentType(ContentType.JSON)
+                    .body(requestBody)
+                    .post(url + "sellers");
 
-    response.prettyPrint();
-        }
+            response.prettyPrint();
+                }
 
     }
 

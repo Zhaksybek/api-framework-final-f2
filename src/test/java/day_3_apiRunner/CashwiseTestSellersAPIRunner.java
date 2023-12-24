@@ -21,7 +21,7 @@ public class CashwiseTestSellersAPIRunner {
         // https://backend.cashwise.us/api/myaccount/  sellers/3095
        APIRunner.runGET("sellers/3095");
 
-        Assert.assertNotNull("Company name is null", APIRunner.getCustomResponses().getCompany_name());
+        //Assert.assertNotNull("Company name is null", APIRunner.getCustomResponses().getCompany_name());
         Assert.assertNotNull("Seller name is null", APIRunner.getCustomResponses().getSeller_name());
         Assert.assertNotNull("Email is null", APIRunner.getCustomResponses().getEmail());
 

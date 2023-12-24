@@ -71,7 +71,7 @@ public class CashwiseSellersTest2 {
         int sizeOfResponses = customResponses.getResponses().size();
 
         for ( int i=0; i<sizeOfResponses; i++  ){
-            System.out.println(  customResponses.getResponses().get(i).getCompany_name() );
+           System.out.println(  customResponses.getResponses().get(i).getCompanyName() );
         }
 
 

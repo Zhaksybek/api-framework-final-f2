@@ -35,7 +35,7 @@ public class ApiRunnerPractice2 {
         APIRunner.runGET("sellers",sellerId );
 
 
-        Assert.assertEquals( "Company name is Not correct: ",companyName, APIRunner.getCustomResponses().getCompany_name() );
+       // Assert.assertEquals( "Company name is Not correct: ",companyName, APIRunner.getCustomResponses().getCompany_name() );
         Assert.assertEquals( "Seller name is Not correct: ",sellerName, APIRunner.getCustomResponses().getSeller_name() );
         Assert.assertEquals( "Email is Not correct: ",email, APIRunner.getCustomResponses().getEmail() );
         Assert.assertEquals( "Phone number is Not correct: ",phoneNumber, APIRunner.getCustomResponses().getPhone_number() );

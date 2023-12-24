@@ -16,6 +16,8 @@ public class APIRunner {
 
     @Getter
     private static CustomResponses customResponses;
+    @Getter
+    private static CustomResponses[] myResponse;
 
 
     // create method for HTTP GET
@@ -37,7 +39,7 @@ public class APIRunner {
                 .get(url);
         System.out.println(response.statusCode());
 
-        response.prettyPrint();
+       // response.prettyPrint();
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -45,7 +47,13 @@ public class APIRunner {
              customResponses = mapper.readValue(response.asString(), CustomResponses.class);
              customResponses.setResponseBody(response.asString());
         } catch (JsonProcessingException e) {
-            System.out.println("This is mostly like a List response");
+
+                System.out.println("This is mostly like a List response");
+                try {
+                    myResponse = mapper.readValue(response.asString(), CustomResponses[].class);
+                } catch (JsonProcessingException ex) {
+                    throw new RuntimeException(ex);
+                }
         }
 
     }
@@ -68,6 +76,11 @@ public class APIRunner {
             customResponses.setResponseBody(response.asString());
         } catch (JsonProcessingException e) {
             System.out.println("This is mostly like a List response");
+            try {
+                myResponse = mapper.readValue(response.asString(), CustomResponses[].class);
+            } catch (JsonProcessingException ex) {
+                throw new RuntimeException(ex);
+            }
         }
 
     }
@@ -90,6 +103,8 @@ public class APIRunner {
                 .params(params)
                 .get(url);
 
+        //response.prettyPrint();
+
         ObjectMapper mapper = new ObjectMapper();
 
         try {
@@ -97,6 +112,11 @@ public class APIRunner {
             customResponses.setResponseBody(response.asString());
         } catch (JsonProcessingException e) {
             System.out.println("This is mostly like a List response");
+            try {
+                myResponse = mapper.readValue(response.asString(), CustomResponses[].class);
+            } catch (JsonProcessingException ex) {
+                throw new RuntimeException(ex);
+            }
         }
 
     }

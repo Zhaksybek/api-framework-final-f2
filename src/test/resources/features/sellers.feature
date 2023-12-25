@@ -1,4 +1,4 @@
-@api
+@seller @api
 Feature: Test Sellers
 
 

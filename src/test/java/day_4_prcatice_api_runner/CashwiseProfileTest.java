@@ -13,7 +13,7 @@ public class CashwiseProfileTest {
         APIRunner.runGET(path);
 
         System.out.println(APIRunner.getCustomResponses().getBusiness_area().getEnTitle());
-        System.out.println(APIRunner.getCustomResponses().getCompany_name().getCompanyName());
+    //    System.out.println(APIRunner.getCustomResponses().getCompany_name().getCompanyName());
 
 
     }

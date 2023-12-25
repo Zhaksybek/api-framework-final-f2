@@ -29,8 +29,8 @@ public class CustomResponses {
     private int category_id;
     private String created;
     private int seller_id;
-    @JsonPropertyOrder("company_name")
-    private String companyName;
+//    @JsonPropertyOrder("company_name")
+//    private String companyName;
     private String seller_name;
     private String seller_surname;
     private String email;
@@ -46,7 +46,7 @@ public class CustomResponses {
     private String ruTitle;
     private String enTitle;
 
-    private ComapanyName company_name;
+   // private ComapanyName company_name;
 
     private Service service_type;
 

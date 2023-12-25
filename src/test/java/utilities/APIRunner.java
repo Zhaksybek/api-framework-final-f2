@@ -10,6 +10,7 @@ import lombok.Getter;
 import pojo.CustomResponses;
 import pojo.RequestBody;
 
+import java.util.List;
 import java.util.Map;
 
 public class APIRunner {
@@ -18,6 +19,7 @@ public class APIRunner {
     private static CustomResponses customResponses;
     @Getter
     private static CustomResponses[] myResponse;
+
 
 
     // create method for HTTP GET
@@ -103,7 +105,7 @@ public class APIRunner {
                 .params(params)
                 .get(url);
 
-        //response.prettyPrint();
+      //  response.prettyPrint();
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -114,6 +116,7 @@ public class APIRunner {
             System.out.println("This is mostly like a List response");
             try {
                 myResponse = mapper.readValue(response.asString(), CustomResponses[].class);
+
             } catch (JsonProcessingException ex) {
                 throw new RuntimeException(ex);
             }

@@ -6,6 +6,7 @@ import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import pojo.CustomResponses;
@@ -27,6 +28,7 @@ public class CashwiseSellersTest2 {
     Faker faker = new Faker();
 
     @Test
+    @Ignore
     public void createManySellers(){
         //https://backend.cashwise.us/api/myaccount/sellers
 
@@ -71,7 +73,7 @@ public class CashwiseSellersTest2 {
         int sizeOfResponses = customResponses.getResponses().size();
 
         for ( int i=0; i<sizeOfResponses; i++  ){
-           System.out.println(  customResponses.getResponses().get(i).getCompanyName() );
+          System.out.println(  customResponses.getResponses().get(i).getSeller_name() );
         }
 
 

@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.apiguardian.api.API;
 import org.junit.Assert;
 import org.junit.Test;
 import pojo.RequestBody;
@@ -54,15 +55,28 @@ public class CashwiseTestSellersAPIRunner {
 
     @Test
     public void getSellersIsArchivedApproach2(){
+        String path = "sellers";
 
         Map<String, Object> params = new HashMap<>();
         params.put("isArchived", false );
         params.put("page", 1 );
         params.put("size", 4 );
-        APIRunner.runGET("sellers", params);
+
+        APIRunner.runGET(path,params);
+
+        System.out.println(APIRunner.getCustomResponses().getResponses().get(0).getSeller_id());
+        //System.out.println(APIRunner.getCustomResponses().getResponses().get(0).getCompany_name());
+
+
+        //APIRunner.runGET("sellers", params);
 
         //int size = APIRunner.getCustomResponses().getResponses().size();
-        System.out.println( "Seller id: "+ APIRunner.getCustomResponses().getResponses().get(0).getSeller_id());
+        //System.out.println( "Seller id: "+ APIRunner.getCustomResponses().getResponses().get(0).getSeller_id());
+
+        // x.responses[0].company_name
+
+
+
     }
 
 

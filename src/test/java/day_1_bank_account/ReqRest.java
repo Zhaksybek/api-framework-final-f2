@@ -11,7 +11,7 @@ public class ReqRest {
     public void reqRestTest(){
        // Response response = RestAssured
 
-        Response response = RestAssured.get("https://reqres.in/api/users/2");
+       Response response = RestAssured.get("https://reqres.in/api/users/2");
 
        String id = response.jsonPath().getString("data.id");
        String email =response.jsonPath().getString("data.email");

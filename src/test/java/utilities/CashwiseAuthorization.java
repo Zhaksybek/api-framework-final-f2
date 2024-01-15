@@ -15,7 +15,7 @@ public class CashwiseAuthorization {
         String url = "https://backend.cashwise.us/api/myaccount/auth/login";
 
         RequestBody requestBody = new RequestBody();  // this class
-        requestBody.setEmail(Config.getProperty("username")); // Serialization java ==>> Json
+        requestBody.setEmail( Config.getProperty("username")); // Serialization java ==>> Json
         requestBody.setPassword(Config.getProperty("password")); // //  Serialization java ==>> Json
 
         Response response = RestAssured.

@@ -3,6 +3,7 @@ package pojo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import io.restassured.response.Response;
 import lombok.Data;
 import org.junit.Ignore;
 
